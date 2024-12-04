@@ -8,18 +8,23 @@ Built with Next.js and React, this project includes a responsive UI, a custom se
 
 ## 📸 Screenshots
 
-![Frontend](Clima/light_mode_screenshot.png)
-![Backend](Clima/dark_mode_screenshot.png)
+![Frontend](screenshots/google-2.0-frontend.png)
+![Backend](screenshots/google-2.0-backend.png)
 
 ---
 
 ## ✨ Features
 
-- **Real-Time Weather Updates:** Get live weather updates based on your current location or search by city name.
-- **Dynamic Weather Animations:** Visualize the weather with beautiful animations for rain, snow, clouds, and sunshine.
-- **Dark & Light Mode:** The app adapts to the system's light or dark mode for a seamless experience.
-- **Temperature in Celsius:** Displays temperature in a user-friendly format.
-- **Error Handling:** Alerts users if there are network issues or invalid city searches.
+- Google Search Clone: A clean and responsive interface replicating the core functionality of Google Search.
+- Gemini AI Integration: Enhanced search results with Gemini AI, filtering and prioritizing results based on user intent and context.
+- Search Results Display: Results are displayed with clickable titles and serial numbers for better navigation and clarity.
+- Smart Result Processing: Uses Gemini AI to improve search relevance by analyzing and filtering Google search results.
+- Custom Search Bar: A functional search bar that redirects users to search results with ease.
+- Responsive Design: Fully optimized for mobile and desktop views, ensuring a seamless experience across devices.
+- Error Handling: Displays user-friendly error messages in case of processing issues or failed searches.
+- Loading State: Displays a loading message while search results are being enhanced by Gemini AI.
+- Pagination System: Efficient pagination for large sets of search results, providing a smooth navigation experience.
+- Simple and Clean UI: Minimalistic design with easy-to-use interface elements like the search bar, buttons, and footer.
 
 ---
 
@@ -27,42 +32,37 @@ Built with Next.js and React, this project includes a responsive UI, a custom se
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/anshusinha26/Clima-iOS-WeatherApp.git
+   git clone https://github.com/anshusinha26/Google-2.0.git
 
-2. Open the project in Xcode:
+2. Navigate to the project directory:
    ```bash
-   cd Clima-iOS-WeatherApp
-   open Clima.xcodeproj
+   cd google-2.0
    
-3. Set up the API Key:
-- Open the Secrets.plist file.
-- Add your OpenWeatherMap API key under the API_KEY field.
+3. Install the dependencies:
+   ```bash
+   yarn install
 
-4. Build and run the app:
-- Connect your iOS device or simulator.
-- Press Cmd + R to run the app.
+4. Set up the necessary API keys:
+
+- Obtain a Google Custom Search API key and a Gemini API key.
+- Create a .env file in the root directory and add the following lines, replacing the placeholders with your actual API keys:
+  ```bash
+  GOOGLE_SEARCH_API_KEY=Input_your_key
+  GOOGLE_SEARCH_CONTEXT_KEY=Input_your_key
+  GOOGLE_GEMINI_API_KEY=Input_your_key
+
+5. Start the development server:
+   ```bash
+   yarn dev
 
 ---
 
 ## ⚙️ Tech Stack
 
-- Swift: Core programming language.
-- UIKit: For building the user interface.
-- CoreLocation: To get the user’s current location.
-- OpenWeatherMap API: To fetch real-time weather data.
-- Lottie: For lightweight, beautiful animations.
-
----
-
-## 📂 Project Structure
-```graphql
-Clima
-├── Clima.xcodeproj    # Project file
-├── AppDelegate.swift  # App lifecycle
-├── SceneDelegate.swift # Scene lifecycle
-├── Secrets.plist      # Stores API key
-├── WeatherManager.swift # Handles API requests
-├── WeatherModel.swift # Weather data model
-├── WeatherData.swift  # Weather API response structure
-├── Controller         # Contains the main ViewController
-└── View               # UI files and assets
+- JavaScript: The primary programming language used for the project.
+- Node.js: A JavaScript runtime environment used for server-side development.
+- React: A JavaScript library for building user interfaces.
+- Next.js: A React framework for building server-rendered applications.
+- Yarn: A package manager for JavaScript used to manage project dependencies.
+- Google Custom Search API: The API used to fetch search results from Google.
+- Gemini API: The API used to process and enhance the search results.
