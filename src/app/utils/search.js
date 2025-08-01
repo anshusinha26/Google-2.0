@@ -1,13 +1,13 @@
 // import {
-//     SEARCH_API_KEY,
-//     SEARCH_CONTEXT_KEY,
-//     GEMINI_API_KEY,
+//     GOOGLE_SEARCH_API_KEY,
+//     GOOGLE_SEARCH_CONTEXT_KEY,
+//     GOOGLE_GEMINI_API_KEY,
 // } from "../../../keys";
 
 // import { GoogleGenerativeAI } from "@google/generative-ai";
 
 // // Initialize Gemini API
-// const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
+// const genAI = new GoogleGenerativeAI(GOOGLE_GEMINI_API_KEY);
 // const geminiModel = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
 // // Rate limiting configuration
@@ -42,7 +42,7 @@
 
 //         // Add startIndex to the API call
 //         const response = await fetch(
-//             `https://www.googleapis.com/customsearch/v1?key=${SEARCH_API_KEY}&cx=${SEARCH_CONTEXT_KEY}&q=${searchTerm}&start=${startIndex}`,
+//             `https://www.googleapis.com/customsearch/v1?key=${GOOGLE_SEARCH_API_KEY}&cx=${GOOGLE_SEARCH_CONTEXT_KEY}&q=${searchTerm}&start=${startIndex}`,
 //             {
 //                 next: {
 //                     revalidate: 3600,
@@ -99,15 +99,15 @@
 ////////////////////////////////////////////////////////////////////////
 
 import {
-    SEARCH_API_KEY,
-    SEARCH_CONTEXT_KEY,
-    GEMINI_API_KEY,
+    GOOGLE_SEARCH_API_KEY,
+    GOOGLE_SEARCH_CONTEXT_KEY,
+    GOOGLE_GEMINI_API_KEY,
 } from "../../../keys";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
 // Initialize Gemini API
-const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
-const geminiModel = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+const genAI = new GoogleGenerativeAI(GOOGLE_GEMINI_API_KEY);
+const geminiModel = genAI.getGenerativeModel({ model: "gemini-2.5-pro" });
 
 const RESULTS_PER_PAGE = 10;
 const RATE_LIMIT_REQUESTS = 100;
@@ -138,7 +138,7 @@ async function fetchSearchResults(searchTerm) {
     try {
         while (startIndex <= 100) {
             const response = await fetch(
-                `https://www.googleapis.com/customsearch/v1?key=${SEARCH_API_KEY}&cx=${SEARCH_CONTEXT_KEY}&q=${searchTerm}&start=${startIndex}`
+                `https://www.googleapis.com/customsearch/v1?key=${GOOGLE_SEARCH_API_KEY}&cx=${GOOGLE_SEARCH_CONTEXT_KEY}&q=${searchTerm}&start=${startIndex}`
             );
 
             console.log(response);
