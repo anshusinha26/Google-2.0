@@ -272,24 +272,11 @@ export default async function Search({ searchParams }) {
         );
     }
 
-    let geminiFilteredResults = null;
-    let error = null;
-    let isLoading = true;
-
-    try {
-        const googleResults = await fetchSearchResults(searchTerm);
-        geminiFilteredResults = await processResultsWithGemini(
-            searchTerm,
-            googleResults
-        );
-    } catch (e) {
-        error = e;
-    } finally {
-        isLoading = false;
-    }
-
-    console.log(typeof geminiFilteredResults);
-    console.log(geminiFilteredResults);
+    const googleResults = await fetchSearchResults(searchTerm);
+    const geminiSummary = await processResultsWithGemini(
+        searchTerm,
+        googleResults.items
+    );
 
     // Helper function to parse the results and render clickable links with serial numbers
     const parseResultsToHTML = (results) => {
@@ -323,25 +310,8 @@ export default async function Search({ searchParams }) {
         <div>
             <Header />
 
-            {/* Error message */}
-            {error && (
-                <div className="bg-red-100 border-l-4 border-red-500 p-4 mb-4">
-                    <p className="text-red-700">
-                        {error.message ||
-                            "Sorry, there was an error processing your search. Please try again later."}
-                    </p>
-                </div>
-            )}
-
-            {/* Loading State */}
-            {isLoading && (
-                <div className="text-center py-10">
-                    <p>Loading enhanced search results...</p>
-                </div>
-            )}
-
             {/* Display Gemini Filtered Results */}
-            {!isLoading && geminiFilteredResults && (
+            {geminiSummary && (
                 <div className="mt-6 p-4 bg-gray-100 border-l-4 border-blue-500">
                     <div className="flex">
                         <h3 className="text-blue-800 text-lg font-semibold mr-2">
@@ -356,7 +326,7 @@ export default async function Search({ searchParams }) {
                         />
                     </div>
 
-                    <div>{parseResultsToHTML(geminiFilteredResults)}</div>
+                    <div>{parseResultsToHTML(geminiSummary)}</div>
                 </div>
             )}
         </div>

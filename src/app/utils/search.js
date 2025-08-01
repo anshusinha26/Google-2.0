@@ -130,32 +130,22 @@ function checkRateLimit() {
 }
 
 // Primary search: Google API
-async function fetchSearchResults(searchTerm) {
-    const allResults = [];
-    const resultsPerPage = 10;
-    let startIndex = 1;
+async function fetchSearchResults(searchTerm, startIndex = 1) {
+    if (!searchTerm) return null;
 
     try {
-        while (startIndex <= 100) {
-            const response = await fetch(
-                `https://www.googleapis.com/customsearch/v1?key=${GOOGLE_SEARCH_API_KEY}&cx=${GOOGLE_SEARCH_CONTEXT_KEY}&q=${searchTerm}&start=${startIndex}`
-            );
+        const response = await fetch(
+            `https://www.googleapis.com/customsearch/v1?key=${GOOGLE_SEARCH_API_KEY}&cx=${GOOGLE_SEARCH_CONTEXT_KEY}&q=${searchTerm}&start=${startIndex}`
+        );
 
-            console.log(response);
-
-            if (!response.ok) break;
-
-            const data = await response.json();
-            if (data.items && data.items.length > 0) {
-                allResults.push(...data.items);
-            }
-
-            startIndex += resultsPerPage;
+        if (!response.ok) {
+            const errorData = await response.json();
+            throw new Error(`Google Search API error: ${errorData.error.message}`);
         }
-        console.log(allResults);
-        return allResults;
+
+        return response.json();
     } catch (error) {
-        console.error("Error fetching all search results:", error);
+        console.error("Error fetching search results:", error);
         throw error;
     }
 }
@@ -213,12 +203,13 @@ Please filter the most relevant results and present them in this format:
 
     try {
         const response = await geminiModel.generateContent(prompt);
-        console.log("Gemini API Response:", response);
-
         // Explicitly convert to string and trim
         return response.response.text().trim();
     } catch (error) {
         console.error("Gemini API Error:", error);
+        if (error.response && error.response.data && error.response.data.error) {
+            throw new Error(`Gemini API error: ${error.response.data.error.message}`);
+        }
         throw new Error("Error processing results with Gemini.");
     }
 }
