@@ -327,8 +327,8 @@ export default async function Search({ searchParams }) {
             {error && (
                 <div className="bg-red-100 border-l-4 border-red-500 p-4 mb-4">
                     <p className="text-red-700">
-                        Sorry, there was an error processing your search. Please
-                        try again later.
+                        {error.message ||
+                            "Sorry, there was an error processing your search. Please try again later."}
                     </p>
                 </div>
             )}

@@ -219,7 +219,7 @@ Please filter the most relevant results and present them in this format:
         return response.response.text().trim();
     } catch (error) {
         console.error("Gemini API Error:", error);
-        return "Error processing results with Gemini.";
+        throw new Error("Error processing results with Gemini.");
     }
 }
 
