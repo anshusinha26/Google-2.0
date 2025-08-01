@@ -4,6 +4,10 @@ This is a Google clone project built with Next.js, Tailwind CSS, and the Gemini 
 
 ![AI Enhanced Search Engine with Gemini AI](/screenshots/ai_enhanced_search_engine_with_gemini_ai.png)
 
+[https://google-2-0-git-main-anshu-sinhas-projects.vercel.app/](https://google-2-0-git-main-anshu-sinhas-projects.vercel.app/)
+
+> **Note:** The deployed version uses a limited number of API calls. To use the application without limitations, you will need to set up your own API keys.
+
 ## Features
 
 -   **Google Search:** Fetches and displays search results from Google's Custom Search API.
