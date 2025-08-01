@@ -1,14 +1,14 @@
-# Google 2.0 - AI-Enhanced Search Engine
+# 🚀 Google 2.0 - AI-Enhanced Search Engine
 
 This is a Google clone project built with Next.js, Tailwind CSS, and the Gemini AI. It's a modern search engine that provides AI-powered search results.
 
 ![AI Enhanced Search Engine with Gemini AI](/screenshots/ai_enhanced_search_engine_with_gemini_ai.png)
 
-[https://google-2-0-git-main-anshu-sinhas-projects.vercel.app/](https://google-2-0-git-main-anshu-sinhas-projects.vercel.app/)
+**Link:** [https://google-2-0-git-main-anshu-sinhas-projects.vercel.app/](https://google-2-0-git-main-anshu-sinhas-projects.vercel.app/)
 
 > **Note:** The deployed version uses a limited number of API calls. To use the application without limitations, you will need to set up your own API keys.
 
-## Features
+## ✨ Features
 
 -   **Google Search:** Fetches and displays search results from Google's Custom Search API.
 -   **AI-Powered Summaries:** Uses the Gemini AI to generate summaries of search results.
@@ -16,25 +16,25 @@ This is a Google clone project built with Next.js, Tailwind CSS, and the Gemini 
 -   **Responsive Design:** The application is fully responsive and works on all devices.
 -   **Pagination:** Users can navigate through search results using pagination.
 
-## Tech Stack
+## 🛠️ Tech Stack
 
 -   [Next.js](https://nextjs.org/) - React framework for building server-side rendered applications.
 -   [Tailwind CSS](https://tailwindcss.com/) - A utility-first CSS framework for rapid UI development.
--   [Gemini AI](https://ai.google.dev/) - Google's AI model for generating text summaries.
+-   [Gemini AI](https.://ai.google.dev/) - Google's AI model for generating text summaries.
 -   [Upstash Redis](https://upstash.com/) - Serverless Redis database for caching search results.
 -   [Heroicons](https://heroicons.com/) - A set of free, high-quality SVG icons.
 
-## Getting Started
+## 🏁 Getting Started
 
 To get a local copy up and running, follow these simple steps.
 
-### Prerequisites
+### ✅ Prerequisites
 
 -   Node.js and npm (or yarn) installed on your machine.
 -   A Google API key and a Custom Search Engine ID. You can get these from the [Google Cloud Console](https://console.cloud.google.com/).
 -   An Upstash Redis database URL and token. You can get these from the [Upstash Console](https://console.upstash.com/).
 
-### Installation
+### ⚙️ Installation
 
 1.  Clone the repo
     ```sh
@@ -60,9 +60,9 @@ To get a local copy up and running, follow these simple steps.
     npm run dev
     ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http.://localhost:3000) with your browser to see the result.
 
-## Project Structure
+## 📂 Project Structure
 
 -   `src/app/page.js`: The main page of the application.
 -   `src/app/search/page.js`: The search results page.
