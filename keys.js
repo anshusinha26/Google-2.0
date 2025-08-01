@@ -1,3 +1,7 @@
+import dotenv from "dotenv";
+
+dotenv.config();
+
 if (!process.env.GOOGLE_SEARCH_API_KEY) {
     throw new Error("GOOGLE_API_KEY environment variable is not defined");
 }
